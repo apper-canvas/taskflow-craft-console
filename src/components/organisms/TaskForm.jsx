@@ -20,7 +20,7 @@ const TaskForm = ({ onSubmit, categories = [], initialTask = null, onCancel }) =
   const [errors, setErrors] = useState({})
 
   useEffect(() => {
-    if (initialTask) {
+if (initialTask) {
       setFormData({
         title: initialTask.title || "",
         description: initialTask.description || "",
@@ -168,7 +168,7 @@ const TaskForm = ({ onSubmit, categories = [], initialTask = null, onCancel }) =
             >
               <option value="">Select category...</option>
               {categories.map(category => (
-                <option key={category.Id} value={category.name}>
+<option key={category.Id} value={category.name}>
                   {category.name}
                 </option>
               ))}

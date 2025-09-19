@@ -46,7 +46,7 @@ const TaskManagement = () => {
   }, [])
 
   const filteredTasks = useMemo(() => {
-    let filtered = tasks
+let filtered = tasks
 
     // Apply search filter
     if (searchQuery.trim()) {
@@ -63,7 +63,7 @@ const TaskManagement = () => {
       filtered = filtered.filter(task => task.category === filters.category)
     }
 
-    // Apply priority filter
+    // Apply priority filter  
     if (filters.priority) {
       filtered = filtered.filter(task => task.priority === filters.priority)
     }
@@ -95,7 +95,7 @@ const TaskManagement = () => {
     if (!editingTask) return
     
     try {
-      const updatedTask = await taskService.updateTask(editingTask.Id, taskData)
+const updatedTask = await taskService.updateTask(editingTask.Id, taskData)
       setTasks(prev => prev.map(task => 
         task.Id === editingTask.Id ? updatedTask : task
       ))
@@ -109,7 +109,7 @@ const TaskManagement = () => {
   const handleToggleComplete = async (taskId, completed) => {
     try {
       const updatedTask = await taskService.updateTask(taskId, { completed })
-      setTasks(prev => prev.map(task => 
+setTasks(prev => prev.map(task => 
         task.Id === taskId ? updatedTask : task
       ))
       
@@ -130,7 +130,7 @@ const TaskManagement = () => {
   const handleDeleteTask = async (taskId) => {
     try {
       await taskService.deleteTask(taskId)
-      setTasks(prev => prev.filter(task => task.Id !== taskId))
+setTasks(prev => prev.filter(task => task.Id !== taskId))
       toast.success("Task deleted successfully")
     } catch (err) {
       toast.error(err.message || "Failed to delete task")

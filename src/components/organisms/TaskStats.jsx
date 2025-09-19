@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 import ApperIcon from "@/components/ApperIcon"
 
 const TaskStats = ({ tasks = [] }) => {
-  const stats = useMemo(() => {
+const stats = useMemo(() => {
     const total = tasks.length
     const completed = tasks.filter(task => task.completed).length
     const pending = total - completed
@@ -12,7 +12,6 @@ const TaskStats = ({ tasks = [] }) => {
 
     return { total, completed, pending, high, completionRate }
   }, [tasks])
-
   const statCards = [
     {
       title: "Total Tasks",

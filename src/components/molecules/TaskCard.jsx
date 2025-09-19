@@ -11,11 +11,11 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
 
   const handleToggleComplete = async () => {
-    await onToggleComplete(task.Id, !task.completed)
+await onToggleComplete(task.Id, !task.completed)
   }
 
   const handleDelete = async () => {
-    setIsDeleting(true)
+setIsDeleting(true)
     await onDelete(task.Id)
     setIsDeleting(false)
     setShowDeleteConfirm(false)
@@ -56,7 +56,7 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20, scale: 0.95 }}
         whileHover={{ y: -2, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-        className={`card p-6 ${task.completed ? "task-completed" : ""}`}
+className={`card p-6 ${task.completed ? "task-completed" : ""}`}
       >
         <div className="flex items-start gap-4">
           <motion.div 
@@ -65,7 +65,7 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
             whileTap={{ scale: 0.9 }}
           >
             <Checkbox
-              checked={task.completed}
+checked={task.completed}
               onChange={handleToggleComplete}
             />
           </motion.div>
@@ -74,7 +74,7 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1 min-w-0">
                 <motion.h3 
-                  className={`text-lg font-semibold mb-2 ${
+className={`text-lg font-semibold mb-2 ${
                     task.completed 
                       ? "line-through text-slate-500" 
                       : "text-slate-900"
@@ -101,7 +101,7 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => onEdit(task)}
+onClick={() => onEdit(task)}
                     className="w-8 h-8 p-0 hover:bg-primary-100 hover:text-primary-600"
                   >
                     <ApperIcon name="Edit2" className="w-4 h-4" />
@@ -125,13 +125,13 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
+<div className="flex items-center gap-3">
                 <Badge variant={getPriorityVariant(task.priority)}>
                   <ApperIcon name={getPriorityIcon(task.priority)} className="w-3 h-3 mr-1" />
                   {task.priority}
                 </Badge>
                 
-                {task.category && (
+{task.category && (
                   <Badge variant="category">
                     <ApperIcon name="Tag" className="w-3 h-3 mr-1" />
                     {task.category}
@@ -139,7 +139,7 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
                 )}
               </div>
 
-              {task.dueDate && (
+{task.dueDate && (
                 <div className="flex items-center text-sm text-slate-500">
                   <ApperIcon name="Calendar" className="w-4 h-4 mr-1" />
                   {formatDueDate(task.dueDate)}
@@ -147,7 +147,7 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
               )}
             </div>
 
-            {task.completed && task.completedAt && (
+{task.completed && task.completedAt && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
@@ -187,7 +187,7 @@ const TaskCard = ({ task, onToggleComplete, onDelete, onEdit }) => {
                 <h3 className="text-lg font-semibold text-slate-900">Delete Task</h3>
               </div>
               
-              <p className="text-slate-600 mb-6">
+<p className="text-slate-600 mb-6">
                 Are you sure you want to delete "{task.title}"? This action cannot be undone.
               </p>
               

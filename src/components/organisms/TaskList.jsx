@@ -76,7 +76,7 @@ const TaskList = ({
           variants={containerVariants}
         >
           <AnimatePresence mode="popLayout">
-            {tasks.map(task => (
+{tasks.map(task => (
               <motion.div
                 key={task.Id}
                 variants={itemVariants}
